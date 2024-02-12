@@ -1,0 +1,42 @@
+{
+  "name": "eth-fundfwd",
+  "version": "0.1.0",
+  "description": "A daemon which forwards funds from a ETH address to a provided one, given its private key",
+  "main": "src/main.ts",
+  "author": "Christian Visintin <christian.visintin@veeso.dev>",
+  "license": "MIT",
+  "private": false,
+  "engines": {
+    "node": ">= 20"
+  },
+  "scripts": {
+    "start": "node build/src/main.js",
+    "clean": "rimraf coverage build tmp",
+    "prebuild": "npm run lint",
+    "build": "tsc -p tsconfig.json",
+    "build:watch": "tsc -w -p tsconfig.json",
+    "build:release": "npm run clean && tsc -p tsconfig.release.json",
+    "lint": "eslint . --ext .ts --ext .mts",
+    "test": "jest --coverage",
+    "prettier": "prettier --config .prettierrc --write .",
+    "test:watch": "jest --watch"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.17",
+    "@types/node-schedule": "^2.1.6",
+    "@typescript-eslint/eslint-plugin": "^6.21.0",
+    "@typescript-eslint/parser": "^6.21.0",
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.1.0",
+    "prettier": "^3.2.5",
+    "tsutils": "^3.21.0",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "alchemy-sdk": "^3.1.2",
+    "dotenv": "^16.4.2",
+    "ethers": "^5.7",
+    "node-schedule": "^2.1.1",
+    "tslib": "^2.6.2"
+  }
+}
